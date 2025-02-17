@@ -37,7 +37,13 @@ const Store = () => {
         
 
     //* Show an Error message
-    if (error) return <div> {error} </div>
+    if (error) {
+        return (
+            <div className="alert alert-danger text-center mt-5" role="alert">
+                <p>{error}</p>
+            </div>
+        );
+    }
 
     /*
     TODO: return a view with the products

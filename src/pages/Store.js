@@ -78,7 +78,7 @@ const Store = () => {
             <h1 className="text-center mb-4">Perfumes Store</h1>
             <div className="row">
                 {products.map( (product) => (
-                    <div key={product.id} className="col-md-4 b-4">
+                    <div key={product.id} className="col-md-4 b-4 mb-4">
                         <div className="card h-100">
                             <img src={product.image} alt={product.name} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }}/>
                             <div className="card-body">

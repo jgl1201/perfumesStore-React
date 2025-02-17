@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Store = () => {
     
@@ -22,6 +24,18 @@ const Store = () => {
                 setLoading(false);
             });
     }, []); // useEffect
+
+    //* Show an alert when the product's been added to the cart
+    const handleAddToCart = (product) => {
+        toast.success(`${product.name} added to the cart`, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
+    };
 
     //* Show a Loading message
     if (loading) {

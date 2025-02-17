@@ -42,14 +42,12 @@ npx create-react-app project_name
 npm install web-vitals
 npm install react-router-dom
 npm install json-server
+npm install bootstrap bootstrap-icons
 npm install axios
 npm install react-icons
 npm install react-hook-form
 npm install react-toastify
 npm install concurrently --save-dev
-
-npm install tailwindcss postcss autoprefixer
-npx tailwindcss init
 
 npm run start:dev
 ```
@@ -62,7 +60,7 @@ npm run start:dev
 
 > To simulate the API and data's storage.
 
-#### TAILWIND
+#### BOOTSTRAP & BOOTSTRAP-ICONS
 
 > To give the app some stilying.
 

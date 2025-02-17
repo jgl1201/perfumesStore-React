@@ -80,7 +80,7 @@ const Store = () => {
                 {products.map( (product) => (
                     <div key={product.id} className="col-md-4 b-4">
                         <div className="card h-100">
-                            <img src={product.iamge} alt={product.name} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }}/>
+                            <img src={product.image} alt={product.name} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }}/>
                             <div className="card-body">
                                 <h5 className="card-title">{product.name} <small className="text-muted">· {product.brand}</small> </h5>
                                 <p className="card-text text-muted">{product.description}</p>

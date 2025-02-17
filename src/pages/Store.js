@@ -72,13 +72,32 @@ const Store = () => {
         );
     }
 
-    /*
-    TODO: return a view with the products
-
-        rehaz el Home.js para que use tailwind para los estilos.
-
-        Quiero que los porductos se muestren en pequñas tarjetas de tal forma que se vea la imagen; debajo el nombre; al lado del nombre, pero en un texto secundario, la marca; debajo de nombre y marca la descripcion, tambien como texto secundario; al final de la tarjeta, el precio a la izquierda, y un botón para añadir al carrito a la derecha (sin funcionalidad por ahora)
-    */
+    //* Return teh view with the products
+    return (
+        <div className="container mt-5">
+            <h1 className="text-center mb-4">Perfumes Store</h1>
+            <div className="row">
+                {products.map( (product) => (
+                    <div key={product.id} className="col-md-4 b-4">
+                        <div className="card h-100">
+                            <img src={product.iamge} alt={product.name} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }}/>
+                            <div className="card-body">
+                                <h5 className="card-title">{product.name} <small className="text-muted">· {product.brand}</small> </h5>
+                                <p className="card-text text-muted">{product.description}</p>
+                            </div>
+                            <div className="card-footer d-flex justify-content-between align-items-center">
+                                <span className="text-primary">{product.price} €</span>
+                                <button className="btn btn-success" onClick={() => handleAddToCart(product)}>
+                                    <i className="bi bi-cart-plus"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <ToastContainer /> // Container for the toast messages
+        </div>
+    );
 };
 
 export default Store;

@@ -95,7 +95,7 @@ const Store = () => {
                     </div>
                 ))}
             </div>
-            <ToastContainer /> // Container for the toast messages
+            <ToastContainer />
         </div>
     );
 };

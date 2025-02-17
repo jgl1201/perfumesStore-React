@@ -1,0 +1,91 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "admin123",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "username": "user1",
+            "password": "password1",
+            "role": "cliente"
+        }
+    ],
+    
+    "products": [
+        {
+            "id": 1,
+            "name": "Boss Bottled",
+            "brand": "Hugo Boss",
+            "description": "Aroma cálido con toques amaderados y especiados.",
+            "price": 85,
+            "image": "/assets/BOSS_Bottled.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Boss Bottled Night",
+            "brand": "Hugo Boss",
+            "description": "Fragancia intensa y sensual con notas de lavanda y abedul.",
+            "price": 90,
+            "image": "/assets/BOSS_BottledNight.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Jean Paul Gaultier Le Male",
+            "brand": "Jean Paul Gaultier",
+            "description": "Fragancia masculina con toques de lavanda, menta y vainilla.",
+            "price": 95,
+            "image": "/assets/JPG_LeMale.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Jean Paul Gaultier Le Beau",
+            "brand": "Jean Paul Gaultier",
+            "description": "Fragancia fresca con coco y haba tonka.",
+            "price": 100,
+            "image": "/assets/JPG_LeBeau.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Jean Paul Gaultier Ultra Male",
+            "brand": "Jean Paul Gaultier",
+            "description": "Aroma potente con notas de pera, lavanda y vainilla negra.",
+            "price": 105,
+            "image": "/assets/JPG_UltraMale.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Paco Rabanne Invictus Legend",
+            "brand": "Paco Rabanne",
+            "description": "Fragancia intensa con notas marinas y especiadas.",
+            "price": 110,
+            "image": "/assets/PACORABANNE_InvictusLegend.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Paco Rabanne Invictus Victory",
+            "brand": "Paco Rabanne",
+            "description": "Aroma oriental con limón, incienso y vainilla.",
+            "price": 115,
+            "image": "/assets/PACORABANNE_InvictusVictory.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Versace Dylan Blue",
+            "brand": "Versace",
+            "description": "Fragancia aromática con notas cítricas y amaderadas.",
+            "price": 95,
+            "image": "/assets/VERSACE_DylanBlue.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Versace Eros",
+            "brand": "Versace",
+            "description": "Aroma vibrante con notas de menta, manzana y vainilla.",
+            "price": 100,
+            "image": "/assets/VERSACE_Eros.jpg"
+        }
+    ]
+}

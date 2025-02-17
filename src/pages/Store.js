@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const Store = () => {
     
@@ -22,7 +24,17 @@ const Store = () => {
     }, []); // useEffect
 
     //* Show a Loading message
-    if (loading) return <div>Fetching products...</div>
+    if (loading) {
+        return (
+            <div className="text-center mt-5">
+                <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+                <p>Loading products...</p>
+            </div>
+        );
+    } 
+        
 
     //* Show an Error message
     if (error) return <div> {error} </div>

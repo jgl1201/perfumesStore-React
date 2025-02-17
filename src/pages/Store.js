@@ -27,14 +27,27 @@ const Store = () => {
 
     //* Show an alert when the product's been added to the cart
     const handleAddToCart = (product) => {
-        toast.success(`${product.name} added to the cart`, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-        });
+        const isSuccesful = true;
+
+        if (isSuccesful) {
+            toast.success(`${product.name} added to the cart`, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        } else {
+            toast.error(`Could not add  ${product.name} to the cart.`, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
     };
 
     //* Show a Loading message

@@ -91,10 +91,10 @@ npm run start:dev
 >
     ├── node_modules/
     ├── public/
+    |   ├── images/             ## Images for the db
     ├── src/
     |   ├── components/         ## Common components (NavBar, Footer...)
     |   ├── pages/              ## App's pages (Home, Login...)
-    |   ├── assets/             ## Images, icons...
     |   ├── data/               ## JSON data used (products, users...)
     |   ├── services/           ## App's logic (Axios data fetching)
     |   ├── App.js              ## Main component

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import './Store.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -80,7 +81,9 @@ const Store = () => {
                 {products.map( (product) => (
                     <div key={product.id} className="col-md-4 b-4 mb-4">
                         <div className="card h-100">
-                            <img src={product.image} alt={product.name} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }}/>
+                            <div className="card-img-container">
+                                <img src={product.image} alt={product.name} className="card-img-top card-img img-fluid object-fit-contain" style={{ height: '200px', objectFit: 'cover' }}/>
+                            </div>
                             <div className="card-body">
                                 <h5 className="card-title">{product.name} <small className="text-muted">· {product.brand}</small> </h5>
                                 <p className="card-text text-muted">{product.description}</p>

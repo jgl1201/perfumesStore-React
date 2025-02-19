@@ -114,3 +114,17 @@ Implement this code to execute parallel commands. This will allow to initialize 
 }
 
 ```
+
+#### `useEffect, useState`
+
+We make use of `useEffect` to execute code that interacts with other parts of the app (Example: API petitions).
+
+```js
+useEffect( () => { /*code*/ }
+```
+
+We make use of `useState` to define variables with a value that will change while the app is working.
+
+```js
+const [products, setProducts] = useState([]);
+```

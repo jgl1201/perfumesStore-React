@@ -128,3 +128,12 @@ We make use of `useState` to define variables with a value that will change whil
 ```js
 const [products, setProducts] = useState([]);
 ```
+
+#### `localStorage`
+
+We make use of `localStorage` to save the items needed to check if the user is Logged in and, this way, show (or not) the username at the NavBar and decide wich auth links to show.
+
+```js
+localStorage.setItem("isLogged", true);
+localStorage.setItem("username", username);
+```

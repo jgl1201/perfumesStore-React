@@ -31,6 +31,7 @@ const Store = () => {
         const isSuccesful = true;
 
         if (isSuccesful) {
+            // * Show a success message
             toast.success(`${product.name} added to the cart`, {
                 position: "top-right",
                 autoClose: 3000,
@@ -40,6 +41,7 @@ const Store = () => {
                 draggable: true,
             });
         } else {
+            // ! Show an error message
             toast.error(`Could not add  ${product.name} to the cart.`, {
                 position: "top-right",
                 autoClose: 3000,

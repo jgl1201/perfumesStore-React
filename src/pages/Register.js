@@ -57,6 +57,9 @@ const Register = () => {
                             <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
                             <input type="password" className="form-control" id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password"></input>
                         </div>
+                        <div className="mb-3">
+                            <a href="/login" className="text-muted text-decoration-none">Already have an account? <span className="link-primary">Login</span></a>
+                        </div>
                         <button type="submit" className="btn btn-primary w-100">Register</button>
                     </form>
                 </div>

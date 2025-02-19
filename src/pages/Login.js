@@ -19,7 +19,24 @@ const Login = () => {
             toast.error('Please fill in all the fields'); //! Show an error message
             return;
         }
-    };
+
+        // Fetch the users from the API
+        try {
+            const response = await axios.get('http://localhost:3001/users', {
+                params: { username, password },
+            });
+
+            if (response,data.length > 0) {
+                TbAsterisk.success('Successfully logged in.'); //* Show a success message
+                navigate('/'); //* Navigate to the Store page
+            } else toast.error('User or password incorrect.'); //! Show an error message
+        } catch (error) {
+            toast.error('Error while logging in. Please try again.'); //! Show an error message
+            console.error(error);
+        }
+    }; // handleLoginSubmit
+
+    //TODO * Return the View with the login form
 };
 
 export default Login;

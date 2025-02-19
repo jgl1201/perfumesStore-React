@@ -26,8 +26,8 @@ const Login = () => {
                 params: { username, password },
             });
 
-            if (response,data.length > 0) {
-                TbAsterisk.success('Successfully logged in.'); //* Show a success message
+            if (response.data.length > 0) {
+                toast.success('Successfully logged in.'); //* Show a success message
                 navigate('/'); //* Navigate to the Store page
             } else toast.error('User or password incorrect.'); //! Show an error message
         } catch (error) {
@@ -36,7 +36,23 @@ const Login = () => {
         }
     }; // handleLoginSubmit
 
-    //TODO * Return the View with the login form
+    //* Return the View with the login form
+    return (
+        <div className="container mt-5">
+            <h2><i className="bi bi-person-circle"></i> Login</h2>
+            <form onSubmit={handleLoginSubmit}>
+                <div className="mb-3">
+                    <label htmlFor="username" className="form-label">Username</label>
+                    <input type="text" className="form-control" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username"></input>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
+                </div>
+                <button type="submit" className="btn btn-primary">Login</button>
+            </form>
+        </div>
+    );
 };
 
 export default Login;

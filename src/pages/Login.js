@@ -15,7 +15,10 @@ const Login = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
 
-        //TODO: Logic for login
+        if (!username || !password) {
+            toast.error('Please fill in all the fields'); //! Show an error message
+            return;
+        }
     };
 };
 

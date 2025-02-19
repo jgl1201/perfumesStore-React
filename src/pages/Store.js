@@ -51,7 +51,7 @@ const Store = () => {
         }
     };
 
-    //* Show a Loading message
+    //? Show a Loading message
     if (loading) {
         return (
             <div className="text-center mt-5">
@@ -64,7 +64,7 @@ const Store = () => {
     } 
         
 
-    //* Show an Error message
+    //! Show an Error message
     if (error) {
         return (
             <div className="alert alert-danger text-center mt-5" role="alert">

@@ -29,9 +29,17 @@ const Login = () => {
             });
 
             if (response.data.length > 0) {
+                //* Save the user in the localStorage
+                localStorage.setItem("isLogged", true);
+                localStorage.setItem("username", username);
+
                 toast.success('Successfully logged in.'); //* Show a success message
                 navigate('/'); //* Navigate to the Store page
+                
+                window.location.reload(); //* Reload the page to re-render NavBar
+                
             } else toast.error('User or password incorrect.'); //! Show an error message
+
         } catch (error) {
             toast.error('Error while logging in. Please try again.'); //! Show an error message
             console.error(error);

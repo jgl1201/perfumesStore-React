@@ -39,18 +39,22 @@ const Login = () => {
     //* Return the View with the login form
     return (
         <div className="container mt-5">
-            <h2><i className="bi bi-person-circle"></i> Login</h2>
-            <form onSubmit={handleLoginSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="username" className="form-label">Username</label>
-                    <input type="text" className="form-control" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username"></input>
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <h2 className="text-center mb-4"><i className="bi bi-person-circle"></i> Login</h2>
+                    <form onSubmit={handleLoginSubmit} className="border border-primary p-4">
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">Username</label>
+                            <input type="text" className="form-control" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username"></input>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
+                        </div>
+                        <button type="submit" className="btn btn-primary w-100">Login</button>
+                    </form>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
-                </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-            </form>
+            </div>
         </div>
     );
 };

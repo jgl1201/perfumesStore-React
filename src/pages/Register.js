@@ -36,8 +36,34 @@ const Register = () => {
             toast.error('Error while registering. Please try again.'); //! Show an error message
             console.error(error);
         }
-
     }; // handleRegisterSubmit
+
+    //* Return the View with the register form
+    return (
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <h2 className="text-center mb-4"><i className="bi bi-person-fill-add"></i> Register</h2>
+                    <form onSubmit={handleRegisterSubmit} className="border border-primary p-4">
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">Username</label>
+                            <input type="text" className="form-control" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username"></input>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                            <input type="password" className="form-control" id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password"></input>
+                        </div>
+                        <button type="submit" className="btn btn-primary w-100">Register</button>
+                    </form>
+                </div>
+            </div>
+            <ToastContainer />
+        </div>
+    );
 };
 
 export default Register;

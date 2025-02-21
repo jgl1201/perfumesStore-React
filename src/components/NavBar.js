@@ -50,10 +50,10 @@ const NavBar = () => {
                 )}
 
                 {/*Link to the Store*/}
-                <Link to="/" className="nav-link mx-auto mx-lg-3">Store</Link>
+                <Link to="/" className="nav-link mx-auto mx-lg-3"><i className="bi bi-shop-window"></i> Store</Link>
 
                 {/*Link to Cart*/}
-                <Link to="/cart" className="nav-link ms-lg-3"><i className="bi bi-bag-fill"></i> Cart</Link>
+                <Link to="/cart" className="nav-link ms-lg-3"><i className="bi bi-cart-fill"></i> Cart</Link>
 
                 {/*Button to toggle the NavBar at small screens*/}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,8 +61,8 @@ const NavBar = () => {
                 </button>
 
                 {/*NavBar toggler items*/}
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto">
+                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul className="navbar-nav">
                         {/*Show Login and Register only if the user is not Logged*/}
                         {!isLogged && (
                             <>

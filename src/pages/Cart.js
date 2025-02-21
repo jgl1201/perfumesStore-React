@@ -41,6 +41,18 @@ const Cart= () => {
         toast.success('Product removed')
     }; // removeProduct
 
+    //* Handle payment form submission
+    const handlePayment = (e) => {
+        e.preventDefault();
+        
+        toast.success('Payment processed successfully!');
+        localStorage.removeItem("cart");
+
+        navigate('/');
+    }; // handlePayment
+
+    
+
 };
 
 export default Cart;

@@ -26,32 +26,22 @@ const Store = () => {
             });
     }, []); // useEffect
 
-    //* Show an alert when the product's been added to the cart
+    //* Handle adding a product to the cart
     const handleAddToCart = (product) => {
-        const isSuccesful = true;
+        const existingCart = JSON.parse(localStorage.getItem("cart")) || []; //* fetch the existing cart or initialize it as empty list
+        const existingItem = existingCart.find((item) => item.id === product.id); //* find if the product is already int the cart
 
-        if (isSuccesful) {
-            // * Show a success message
-            toast.success(`${product.name} added to the cart`, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+        if (existingItem) {
+            existingItem.quantity += 1;
+            toast.info(`${product.name} already at cart. Updating quantity.`);
         } else {
-            // ! Show an error message
-            toast.error(`Could not add  ${product.name} to the cart.`, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            existingCart.push({...product, quantity: 1});
+            toast.success(`${product.name} added to cart.`)
         }
-    };
+
+        localStorage.setItem("cart", JSON.stringify(existingCart));
+
+    }; // handleAddToCart
 
     //? Show a Loading message
     if (loading) {

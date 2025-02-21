@@ -50,10 +50,10 @@ const NavBar = () => {
                 )}
 
                 {/*Link to the Store*/}
-                <Link to="/" className="navbar-brand mx-auto">Store</Link>
+                <Link to="/" className="nav-link mx-auto mx-lg-3">Store</Link>
 
                 {/*Link to Cart*/}
-                <Link to="/cart" className="nav-link"><i className="bi bi-bag-fill"></i> Cart</Link>
+                <Link to="/cart" className="nav-link ms-lg-3"><i className="bi bi-bag-fill"></i> Cart</Link>
 
                 {/*Button to toggle the NavBar at small screens*/}
                 <button className="navbar-toggler" type="button" dara-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

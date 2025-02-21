@@ -44,7 +44,7 @@ const NavBar = () => {
 
                 {/*User (if logged) */}
                 {isLogged && (
-                    <span className="navbar-text me-auto">
+                    <span className="navbar-text me-3">
                         <i className="bi bi-person-circle"></i> {username}
                     </span>
                 )}

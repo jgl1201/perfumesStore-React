@@ -21,7 +21,15 @@ const Cart= () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
     }; // calculateTotalPrice
 
-    
+    //* Update the cuantity of a product
+    const updateQuantity = (id, newQantity) => {
+        const updatedCart = cartItems.map((item) => 
+            item.id === id ? {...item, quantity: newQantity} : item
+        );
+
+        setCartItems(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    }; // updateQuantity
 
 };
 

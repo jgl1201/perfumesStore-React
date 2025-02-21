@@ -7,7 +7,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const Cart= () => {
 
-    const [carItems, setCartItems] = useState([]); //* State to save the items at the cart
+    const [cartItems, setCartItems] = useState([]); //* State to save the items at the cart
     const navigate = useNavigate();
 
     //* Load cart items from localStorage
@@ -15,6 +15,13 @@ const Cart= () => {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCartItems(storedCart);
     }, []); // useEffect
+
+    //* Calculate tota price
+    const calculateTotalPrice = () => {
+        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    }; // calculateTotalPrice
+
+    
 
 };
 

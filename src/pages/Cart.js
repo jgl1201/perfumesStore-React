@@ -12,7 +12,7 @@ const Cart= () => {
 
     //* Load cart items from localStorage
     useEffect(()  => {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCartItems(storedCart);
     }, []); // useEffect
 
@@ -28,8 +28,18 @@ const Cart= () => {
         );
 
         setCartItems(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
     }; // updateQuantity
+
+    //* Remove a product from cart
+    const removeProduct = (id) => {
+        const updatedCart = cartItems.filter((item) => item.id !== id);
+
+        setCartItems(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+        toast.success('Product removed')
+    }; // removeProduct
 
 };
 

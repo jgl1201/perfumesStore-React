@@ -52,6 +52,13 @@ const NavBar = () => {
                     <i className="bi bi-cart-fill"></i> Cart
                 </Link>
 
+                {/* Link to Buys (if Logged) */}
+                {isLogged && (
+                    <Link to="/buys" className="nav-link me-3">
+                        <i className="bi bi-receipt-cutoff"></i> Your Buys
+                    </Link>
+                )}
+
                 {/* Button to toggle the NavBar at small screens */}
                 <button
                     className="navbar-toggler"

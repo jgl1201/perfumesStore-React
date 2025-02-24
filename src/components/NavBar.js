@@ -55,7 +55,7 @@ const NavBar = () => {
                 {/* Link to Buys (if Logged) */}
                 {isLogged && (
                     <Link to="/buys" className="nav-link me-3">
-                        <i className="bi bi-receipt-cutoff"></i> Your Buys
+                        <i className="bi bi-receipt-cutoff"></i> Your Purchases
                     </Link>
                 )}
 

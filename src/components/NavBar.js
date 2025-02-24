@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import './NavBar.css'
 
 const NavBar = () => {
 
@@ -65,7 +66,7 @@ const NavBar = () => {
                 </button>
 
                 {/* NavBar toggler items */}
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse custom-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         {/* User (if logged) */}
                         {isLogged && (

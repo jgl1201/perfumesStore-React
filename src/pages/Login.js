@@ -29,9 +29,13 @@ const Login = () => {
             });
 
             if (response.data.length > 0) {
+                const user = response.data[0];
+
                 //* Save the user in the localStorage
                 localStorage.setItem("isLogged", true);
-                localStorage.setItem("username", username);
+                localStorage.setItem("username", user.username);
+                localStorage.setItem("userId", user.id);
+                localStorage.setItem("userRole", user.role);
 
                 toast.success('Successfully logged in.'); //* Show a success message
                 navigate('/'); //* Navigate to the Store page

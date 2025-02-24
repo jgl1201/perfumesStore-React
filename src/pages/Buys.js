@@ -21,7 +21,7 @@ const Buys = () => {
     const userId = localStorage.getItem("userId");
     const userRole = localStorage.getItem("userRole");
 
-    //* Get user's purchases
+    //* Get all the purchases and products
     useEffect(() => {
         const fetchPurchases = async () => {
             try {
@@ -31,7 +31,8 @@ const Buys = () => {
                 ]);
                 setProducts(productsResponse.data);
 
-                if (userRole === "admin") setPurchases(purchaseResponse.data); //* If the user is an admin, get all purchases
+                if (userRole === "admin")
+                    setPurchases(purchaseResponse.data); //* If the user is an admin, get all purchases
                 else {
                     const userPurchases = purchaseResponse.data.filter(purchase => purchase.userId === userId);
                     setPurchases(userPurchases);
@@ -40,6 +41,7 @@ const Buys = () => {
                 setLoading(false);
             } catch (error) {
                 setError('Error al cargar las compras');
+                toast.error('Error al cargar las compras');
                 setLoading(false);
                 console.error(error);
             }
@@ -48,13 +50,13 @@ const Buys = () => {
         fetchPurchases();
     }, [userId, userRole]) // useEffect
 
-    //* Get products
+    //* Get products' name and price by ID
     const getProductDetails = (productId) => {
         const product = products.find(p => p.id === productId);
         return product ? { name: product.name, price: product.price } : { name: 'Product not found', price: 0 };
     }; // getProductDetails
 
-    //* Generate PDF bill file
+    //* Generate PDF invoice
     const generateInvoice = (purchase) => {
         const doc = new jsPDF();
 
@@ -124,7 +126,7 @@ const Buys = () => {
                                     <p>Total: €{purchase.total}</p>
                                 </div>
                                 <button className="btn btn-primary" onClick={() => generateInvoice(purchase)}>
-                                    <i className="bi bi-download">Download Invoice</i>
+                                    <i className="bi bi-download"> Download Invoice</i>
                                 </button>
                             </div>
                         </div>
@@ -133,6 +135,7 @@ const Buys = () => {
             ) : (
                 <p className="text-center">No purchases yet</p>
             )}
+            <ToastContainer />
         </div>
     );
 

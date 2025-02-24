@@ -1,0 +1,17 @@
+.custom-collapse {
+    width: 250px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+@media (max-width: 991.98px) {
+    .custom-collapse {
+        position: absolute;
+        right: 0;
+        top: 100%; /* Coloca el menú debajo del NavBar */
+        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    }
+}

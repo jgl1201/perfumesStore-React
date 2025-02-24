@@ -40,7 +40,7 @@ const NavBar = () => {
 
     //* Return the NavBar
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
             <div className="container-fluid">
 
                 {/* Brand */}
@@ -63,7 +63,9 @@ const NavBar = () => {
 
                 {/* NavBar toggler items */}
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav mx-auto"> {/* Center main links */}
+                    <ul className="navbar-nav mx-auto"> 
+                        
+                        {/* Center main links */}
                         {/* Link to the Store */}
                         <li className="nav-item">
                             <Link to="/" className="nav-link custom-link">

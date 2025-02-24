@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,8 +13,6 @@ const Buys = () => {
     const [products, setProducts] = useState([]); //* State to save the products
     const [loading, setLoading] = useState(true); //* State to handle loading
     const [error, setError] = useState(null); //* State to handle errors
-
-    const navigate = useNavigate();
 
     //* Get User id and role of logged user
     const userId = localStorage.getItem("userId");

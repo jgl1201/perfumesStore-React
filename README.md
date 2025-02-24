@@ -47,6 +47,7 @@ npm install axios
 npm install react-icons
 npm install react-hook-form
 npm install react-toastify
+npm install jspdf@2.5.1 jspdf-autotable@latest
 npm install concurrently --save-dev
 
 npm run start:dev
@@ -83,6 +84,10 @@ npm run start:dev
 #### CONCURRENTLY
 
 > To execute more than one command merged in one.
+
+#### JSPDF JSPDF-AUTOTABLE
+
+> To generate .pdf files in an easy way.
 
 ---
 

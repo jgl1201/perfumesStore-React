@@ -42,22 +42,11 @@ const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                {/* Link to the Store */}
-                <Link to="/" className="navbar-brand">
-                    <i className="bi bi-shop-window"></i> Store
-                </Link>
 
-                {/* Link to Cart */}
-                <Link to="/cart" className="nav-link me-3">
-                    <i className="bi bi-cart-fill"></i> Cart
+                {/* Brand */}
+                <Link to="/" className="navbar-brand me-auto">
+                    <i className="bi bi-shop"></i> My Store
                 </Link>
-
-                {/* Link to Buys (if Logged) */}
-                {isLogged && (
-                    <Link to="/buys" className="nav-link me-3">
-                        <i className="bi bi-receipt-cutoff"></i> Your Purchases
-                    </Link>
-                )}
 
                 {/* Button to toggle the NavBar at small screens */}
                 <button
@@ -73,8 +62,33 @@ const NavBar = () => {
                 </button>
 
                 {/* NavBar toggler items */}
-                <div className="collapse navbar-collapse custom-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto">
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav mx-auto"> {/* Center main links */}
+                        {/* Link to the Store */}
+                        <li className="nav-item">
+                            <Link to="/" className="nav-link custom-link">
+                                <i className="bi bi-shop-window"></i> Store
+                            </Link>
+                        </li>
+
+                        {/* Link to Cart */}
+                        <li className="nav-item">
+                            <Link to="/cart" className="nav-link custom-link">
+                                <i className="bi bi-cart-fill"></i> Cart
+                            </Link>
+                        </li>
+
+                        {/* Link to Buys (if Logged) */}
+                        {isLogged && (
+                            <li className="nav-item">
+                                <Link to="/buys" className="nav-link custom-link">
+                                    <i className="bi bi-receipt-cutoff"></i> Your Purchases
+                                </Link>
+                            </li>
+                        )}
+                    </ul>
+
+                    <ul className="navbar-nav ms-auto"> {/* Right align auth links */}
                         {/* User (if logged) */}
                         {isLogged && (
                             <li className="nav-item">
@@ -89,13 +103,13 @@ const NavBar = () => {
                             <>
                                 {/* Login */}
                                 <li className="nav-item">
-                                    <Link to="/login" className="nav-link">
+                                    <Link to="/login" className="nav-link custom-link">
                                         <i className="bi bi-box-arrow-in-right"></i> Login
                                     </Link>
                                 </li>
                                 {/* Register */}
                                 <li className="nav-item">
-                                    <Link to="/register" className="nav-link">
+                                    <Link to="/register" className="nav-link custom-link">
                                         <i className="bi bi-person-plus"></i> Register
                                     </Link>
                                 </li>
@@ -105,7 +119,7 @@ const NavBar = () => {
                         {/* Show Logout only if the user is Logged */}
                         {isLogged && (
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link" onClick={handleLogout}>
+                                <button className="nav-link custom-link btn btn-link" onClick={handleLogout}>
                                     <i className="bi bi-box-arrow-left"></i> Logout
                                 </button>
                             </li>

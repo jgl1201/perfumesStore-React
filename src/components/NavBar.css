@@ -1,3 +1,27 @@
+.custom-link {
+    color: #000;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.custom-link:hover {
+    background: linear-gradient(45deg, #007bff, #00bfff);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #00bfff;
+}
+
 @media (max-width: 991.98px) {
     .custom-collapse {
         background-color: white;

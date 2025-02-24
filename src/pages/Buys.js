@@ -25,13 +25,21 @@ const Buys = () => {
     useEffect(() => {
         const fetchPurchases = async () => {
             try {
-                const respone = await axios.get('http://localhost:3001/purchases');
-                if (userRole === "admin") setPurchases(respone.data); //* If the user is an admin, get all purchases
-                else setPurchases(respone.data.filter(purchase => purchase.userId === userId)); //* If the user is a customer, get only his purchases
+                const [purchaseResponse, productsResponse] = await Promise.all([
+                    axios.get('http://localhost:3001/purchases'),
+                    axios.get('http://localhost:3001/products')
+                ]);
+                setProducts(productsResponse.data);
+
+                if (userRole === "admin") setPurchases(purchaseResponse.data); //* If the user is an admin, get all purchases
+                else {
+                    const userPurchases = purchaseResponse.data.filter(purchase => purchase.userId === userId);
+                    setPurchases(userPurchases);
+                }
 
                 setLoading(false);
             } catch (error) {
-                setError(error);
+                setError('Error al cargar las compras');
                 setLoading(false);
                 console.error(error);
             }
@@ -40,27 +48,40 @@ const Buys = () => {
         fetchPurchases();
     }, [userId, userRole]) // useEffect
 
+    //* Get products
+    const getProductDetails = (productId) => {
+        const product = products.find(p => p.id === productId);
+        return product ? { name: product.name, price: product.price } : { name: 'Product not found', price: 0 };
+    }; // getProductDetails
+
     //* Generate PDF bill file
     const generateInvoice = (purchase) => {
         const doc = new jsPDF();
 
         // Header
-        doc.setFontSize(20);
+        doc.setFontSize(18);
         doc.text("Perfumes Store", 10, 10);
         doc.setFontSize(12);
-        doc.text(`Client: ${purchase.userId}`, 10, 10);
+        doc.text(`Client: ${purchase.userId}`, 10, 20);
 
         // Table
         doc.autoTable({
             startY: 30,
-            head: [['Purchase ID', 'Product', 'Quantity', 'Price']],
-            body: purchase.products.map(product => [
-                purchase.id, product.name, product.quantity, `$${product.price}`
-            ]),
+            head: [['Purchase ID', 'Product', 'Quantity', 'Price', 'Total Price']],
+            body: purchase.products.map(product => {
+                const { name, price } = getProductDetails(product.id);
+                return [
+                    purchase.id,
+                    name,
+                    product.quantity,
+                    `€${price}`,
+                    `€${price * product.quantity}`
+                ];
+            }),
         });
 
         // Total
-        doc.text(`Total: $${purchase.total}`, 10, doc.lastAutoTable.finalY + 10);
+        doc.text(`Total: €${purchase.total}`, 10, doc.lastAutoTable.finalY + 10);
 
         // Save the PDF
         doc.save(`invoice_${purchase.id}.pdf`);
@@ -95,12 +116,12 @@ const Buys = () => {
             <h2 className="text-center mb-4">Purchases</h2>
             {purchases.length > 0 ? (
                 <div className="list-group">
-                    {purchases.map(purchase => (
+                    {purchases.map((purchase) => (
                         <div key={purchase.id} className="list-group-item">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5>Purchase #{purchase.id}</h5>
-                                    <p>Total: ${purchase.total}</p>
+                                    <p>Total: €{purchase.total}</p>
                                 </div>
                                 <button className="btn btn-primary" onClick={() => generateInvoice(purchase)}>
                                     <i className="bi bi-download">Download Invoice</i>

@@ -92,5 +92,37 @@
             "price": 100,
             "image": "/images/VERSACE_Eros.jpg"
         }
+    ],
+    "purchases" : [
+        {
+            "id": "1",
+            "userId": "1",
+            "products" : [
+                {
+                    "id": "1",
+                    "quantity": 2
+                },
+                {
+                    "id": "2",
+                    "quantity": 1
+                }
+            ],
+            "total": 260
+        }, 
+        {
+            "id": "2",
+            "userId": "2",
+            "products" : [
+                {
+                    "id": "3",
+                    "quantity": 1
+                },
+                {
+                    "id": "4",
+                    "quantity": 1
+                }
+            ],
+            "total": 190
+        }
     ]
 }

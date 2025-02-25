@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -44,11 +45,52 @@ const Cart= () => {
     //* Handle payment form submission
     const handlePayment = (e) => {
         e.preventDefault();
-        
-        toast.success('Payment processed successfully!');
-        localStorage.removeItem("cart");
 
-        navigate('/');
+        //* Check if the cart is empty
+        if (cartItems.length === 0) {
+            toast.error('Your cart is empty');
+            return;
+        }
+
+        //* Check if the user is logged in
+        const isLogged = localStorage.getItem("isLogged");
+        if (!isLogged) {
+            toast.error('You must be logged in to make a payment');
+            return;
+        }
+
+        //* Get the user's ID
+        const userId = localStorage.getItem("userId");
+
+        //* Prepare the purchase to post it at the db
+        const purchase = {
+            userId: userId,
+            products: cartItems.map(item => ({
+                id: item.id,
+                quantity: item.quantity
+            })),
+            total: calculateTotalPrice()
+        };
+
+        //* Process payment
+        // Simulate a payment process
+        try {
+            toast.success('Payment processing...');
+            
+            axios.post('http://localhost:3001/purchases', purchase)
+                .then(() => {
+                    localStorage.removeItem("cart");
+                    navigate('/buys');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    toast.error('Error processing payment', error);
+                }); // post
+        } catch (error) {
+            console.error(error);
+            toast.error('Error processing payment', error);
+        } // try-catch
+
     }; // handlePayment
 
     return (

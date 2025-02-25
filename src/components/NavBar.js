@@ -26,6 +26,8 @@ const NavBar = () => {
         //* Remove items from localStorage
         localStorage.removeItem("isLogged");
         localStorage.removeItem("username");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userRole");
 
         //* Update the state
         setIsLogged(false);

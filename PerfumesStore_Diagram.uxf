@@ -1,0 +1,40 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>30</x><y>30</y><w>120</w><h>580</h></coordinates><panel_attributes>db.json
+
+--
+--
+
+· users : [ 
+    {
+        id
+        username
+        password
+        role
+    }
+]
+
+--
+
+· products : [
+    {
+        id
+        name
+        brand
+        description
+        price
+        image
+    }
+]
+
+--
+
+· purchases : [
+    {
+        id
+        userId
+        products : [
+            id
+            quantity
+        ]
+        total
+    }
+]</panel_attributes><additional_attributes></additional_attributes></element></diagram>

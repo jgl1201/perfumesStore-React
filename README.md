@@ -106,6 +106,10 @@ npm run start:dev
     |   ├── index.js            ## App's entry point
     |   ├── reportWebVitals.js  ## To show errors at the browser
 
+## `DIAGRAM`
+
+![Diagram][diagram]
+
 ## `CODE`
 
 #### `package.json`
@@ -142,3 +146,5 @@ We make use of `localStorage` to save the items needed to check if the user is L
 localStorage.setItem("isLogged", true);
 localStorage.setItem("username", username);
 ```
+
+[diagrama]: PS_DB-Activity-Package.png

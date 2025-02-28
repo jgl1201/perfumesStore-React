@@ -108,7 +108,7 @@ npm run start:dev
 
 ## `DIAGRAM`
 
-![Diagram][diagram]
+![Diagram][diagrama]
 
 ## `CODE`
 

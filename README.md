@@ -138,6 +138,19 @@ We make use of `useState` to define variables with a value that will change whil
 const [products, setProducts] = useState([]);
 ```
 
+#### `useNavigate`
+
+We make use of `useNavigate` hook to handle redirections easyly.
+
+```js
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+
+/// Login
+navigate('/buys');
+```
+
 #### `localStorage`
 
 We make use of `localStorage` to save the items needed to check if the user is Logged in and, this way, show (or not) the username at the NavBar and decide wich auth links to show.

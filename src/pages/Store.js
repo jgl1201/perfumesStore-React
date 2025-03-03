@@ -5,6 +5,7 @@ import './Store.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from "sweetalert2";
 
 const Store = () => {
     
@@ -24,6 +25,21 @@ const Store = () => {
                 setError('Error al cargar los productos: ', error);
                 setLoading(false);
             });
+
+            //* Show a Legal warning
+            Swal.fire({
+                title: 'Legal warning',
+                html:   `<p>
+                            <strong>Legal:</strong> This page has been created for educational purposes only. The products shown are just examples of existing prodicts and are not intended to tarnish the image or harm any brand mentioned. All rights reserved to their respective owners.
+                        </p>`,
+                timer: 10000,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false,
+                icon: 'info',
+            });
+
     }, []); // useEffect
 
     //* Handle adding a product to the cart

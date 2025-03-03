@@ -2,4 +2,10 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+}
+
+.footer p {
+    font-size: 0.9em;
+    color: #666;
 }

@@ -10,6 +10,7 @@ import 'jspdf-autotable';
 const Buys = () => {
 
     const [purchases, setPurchases] = useState([]); //* State to save the purchases
+    const [selectedPurchase, setSelectedPurchase] = useState(null); //* State to select a purchase
     const [products, setProducts] = useState([]); //* State to save the products
     const [loading, setLoading] = useState(true); //* State to handle loading
     const [error, setError] = useState(null); //* State to handle errors
@@ -37,9 +38,9 @@ const Buys = () => {
 
                 setLoading(false);
             } catch (error) {
+                setLoading(false);
                 setError('Error al cargar las compras');
                 toast.error('Error al cargar las compras');
-                setLoading(false);
                 console.error(error);
             }
         };
@@ -113,25 +114,63 @@ const Buys = () => {
     return (
         <div className="container mt-5">
             <h2 className="text-center mb-4">Purchases</h2>
-            {purchases.length > 0 ? (
-                <div className="list-group">
-                    {purchases.map((purchase) => (
-                        <div key={purchase.id} className="list-group-item">
-                            <div className="d-flex justify-content-between align-items-center">
+            <div className="row">
+                {purchases.length > 0 ? (
+                    <div className="list-group">
+                        {purchases.map((purchase) => (
+                            <div key={purchase.id} className="list-group-item d-flex justify-content-between align-items-center" onClick={() => setSelectedPurchase(purchase)} style={{ cursor: 'pointer' }}>
                                 <div>
                                     <h5>Purchase #{purchase.id}</h5>
-                                    <p>Total: €{purchase.total}</p>
+                                    <p>Total: {purchase.total} €</p>
                                 </div>
-                                <button className="btn btn-primary" onClick={() => generateInvoice(purchase)}>
-                                    <i className="bi bi-download"> Download Invoice</i>
+                                <button className="btn btn-primary" onClick={(e) => {e.stopPropagation(); generateInvoice(purchase); }}>
+                                    <i className="bi bi-file-earmark-pdf"></i> Dowload invoice
                                 </button>
                             </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="alert alert-warning text-center" role="alert">
+                        <p>No purchases found</p>
+                    </div>
+                )}
+            </div>
+
+            <div className="col-md-6">
+            {selectedPurchase ? (
+                        <div className="card p-4">
+                            <h4>Invoice Preview</h4>
+                            <p>Client: {selectedPurchase.userId}</p>
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {selectedPurchase.products && selectedPurchase.products.map((product) => {
+                                        const { name, price } = getProductDetails(product.id);
+                                        return (
+                                            <tr key={product.id}>
+                                                <td>{name}</td>
+                                                <td>{product.quantity}</td>
+                                                <td>€{price}</td>
+                                                <td>€{product.quantity * price}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                            <h5 className="text-end">Total: €{selectedPurchase.total}</h5>
                         </div>
-                    ))}
-                </div>
-            ) : (
-                <p className="text-center">No purchases yet</p>
-            )}
+                    ) : (
+                        <p className="text-center">Select a purchase to preview</p>
+                    )}
+            </div>
+
             <ToastContainer />
         </div>
     );

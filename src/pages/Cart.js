@@ -113,9 +113,10 @@ const Cart= () => {
                             cartItems.map((item) => (
                                 <div key={item.id} className="mb-3">
                                     <div className="d-flex justify-content-between align-items-center">
+                                        <img src={item.image} alt={item.name} className="me-3 item-image"></img>
                                         <div>
                                             <h5>{item.name}</h5>
-                                            <p>{item.price} x {item.quantity}</p>
+                                            <p>{item.price} € x {item.quantity}</p>
                                         </div>
                                         <div className="d-flex algin-items-center">
                                             <input type="number" min="1" value={item.quantity} onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))} className="form-control me-2" style={{ width: '80px'}} />

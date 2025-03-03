@@ -67,7 +67,7 @@ const Store = () => {
 
     //* Return teh view with the products
     return (
-        <div className="container mt-5">
+        <div className="store-container">
             <h1 className="text-center mb-4"><i className="bi bi-gem primary"></i> Perfumes Store</h1>
             <div className="row">
                 {products.map( (product) => (
@@ -82,7 +82,7 @@ const Store = () => {
                             </div>
                             <div className="card-footer d-flex justify-content-between align-items-center">
                                 <span className="text-primary">{product.price} €</span>
-                                <button className="btn btn-success" onClick={() => handleAddToCart(product)}>
+                                <button className="btn btn-add-to-cart" onClick={() => handleAddToCart(product)}>
                                     <i className="bi bi-cart-plus"></i> Add to cart
                                 </button>
                             </div>

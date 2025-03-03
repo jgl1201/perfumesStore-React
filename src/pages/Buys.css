@@ -1,0 +1,78 @@
+.buys-container {
+    background-color: #494949;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.buys-list {
+    list-style: none;
+    padding: 0;
+}
+
+.buys-list-item {
+    background: #c0c0c0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #555;
+    color: #000;
+}
+
+.buys-list-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5 15px rgba(0, 0, 0, 0.3);
+}
+
+.invoice-preview {
+    background: #c0c0c0;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #555;
+    color: #000;
+}
+
+.invoice-preview h4 {
+    color: #333;
+}
+
+.invoice-preview table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.invoice-preview th, .invoice-preview td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.invoice-preview th {
+    background-color: #f2f2f2;
+}
+
+.invoice-preview .total {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.btn-download-invoice {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-download-invoice:hover {
+    background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
+}
+
+.text-primary {
+    color: #ff6b6b !important;
+}

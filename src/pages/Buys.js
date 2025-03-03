@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import './Buys.css';
 import jsPDF from "jspdf";
 import 'jspdf-autotable';
 
@@ -112,18 +113,18 @@ const Buys = () => {
 
     //* Return the purchases veiw
     return (
-        <div className="container mt-5">
+        <div className="buys-container">
             <h2 className="text-center mb-4">Purchases</h2>
             <div className="row">
                 {purchases.length > 0 ? (
                     <div className="list-group">
                         {purchases.map((purchase) => (
-                            <div key={purchase.id} className="list-group-item d-flex justify-content-between align-items-center" onClick={() => setSelectedPurchase(purchase)} style={{ cursor: 'pointer' }}>
+                            <div key={purchase.id} className="list-group-item d-flex justify-content-between align-items-center buys-list-item" onClick={() => setSelectedPurchase(purchase)} style={{ cursor: 'pointer' }}>
                                 <div>
                                     <h5>Purchase #{purchase.id}</h5>
                                     <p>Total: {purchase.total} €</p>
                                 </div>
-                                <button className="btn btn-primary" onClick={(e) => {e.stopPropagation(); generateInvoice(purchase); }}>
+                                <button className="btn btn-download-invoice" onClick={(e) => {e.stopPropagation(); generateInvoice(purchase); }}>
                                     <i className="bi bi-file-earmark-pdf"></i> Dowload invoice
                                 </button>
                             </div>
@@ -138,7 +139,7 @@ const Buys = () => {
 
             <div className="col-md-6">
             {selectedPurchase ? (
-                        <div className="card p-4">
+                        <div className="card p-4 invoice-preview">
                             <h4>Invoice Preview</h4>
                             <p>Client: {selectedPurchase.userId}</p>
                             <table className="table">
@@ -164,7 +165,7 @@ const Buys = () => {
                                     })}
                                 </tbody>
                             </table>
-                            <h5 className="text-end">Total: €{selectedPurchase.total}</h5>
+                            <h5 className="text-end total">Total: €{selectedPurchase.total}</h5>
                         </div>
                     ) : (
                         <p className="text-center">Select a purchase to preview</p>

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import './Cart.css';
 
 const Cart= () => {
 
@@ -100,7 +101,7 @@ const Cart= () => {
     }; // handlePayment
 
     return (
-        <div className="container mt-5">
+        <div className="cart-container">
             <div className="row">
                 {/* Left side: cart summary*/}
                 <div className="col-md-6">
@@ -149,7 +150,7 @@ const Cart= () => {
                                 <label htmlFor="cvv" className="form-label">CVV</label>
                                 <input type="text" className="form-control" id="cvv" placeholder="123" required/>
                             </div>
-                            <button type="submit" className="btn btn-success w-100">Pay Now</button>
+                            <button type="submit" className="btn btn-pay-now w-100">Pay Now</button>
                         </form>
                     </div>
                 </div>

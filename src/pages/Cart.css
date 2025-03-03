@@ -31,7 +31,7 @@
 }
 
 .btn-pay-now {
-    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    background: linear-gradient(45deg, #4caf50, #45a049);
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -41,7 +41,7 @@
 }
 
 .btn-pay-now:hover {
-    background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
+    background: linear-gradient(45deg, #45a049, #4caf50);
 }
 
 .text-primary {

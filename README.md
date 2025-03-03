@@ -47,6 +47,7 @@ npm install axios
 npm install react-icons
 npm install react-hook-form
 npm install react-toastify
+npm install sweetalert2
 npm install jspdf@2.5.1 jspdf-autotable@latest
 npm install concurrently --save-dev
 
@@ -80,6 +81,10 @@ npm run start:dev
 #### REACT TOASTIFY
 
 > To show pop-up notifications (product added to the cart...).
+
+#### SWEETALERT2
+
+> To show modal notifications (purchase success...)
 
 #### CONCURRENTLY
 

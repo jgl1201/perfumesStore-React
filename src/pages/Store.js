@@ -30,7 +30,7 @@ const Store = () => {
             Swal.fire({
                 title: 'Legal warning',
                 html:   `<p>
-                            <strong>Legal:</strong> This page has been created for educational purposes only. The products shown are just examples of existing prodicts and are not intended to tarnish the image or harm any brand mentioned. All rights reserved to their respective owners.
+                            <strong>Legal:</strong> This page has been created for educational purposes only. The products shown are just examples of existing products and are not intended to tarnish the image or harm any brand mentioned. All rights reserved to their respective owners.
                         </p>`,
                 timer: 10000,
                 showConfirmButton: false,

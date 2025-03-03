@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -75,17 +76,22 @@ const Cart= () => {
         //* Process payment
         // Simulate a payment process
         try {
-            toast.success('Payment processing...');
-            
-            axios.post('http://localhost:3001/purchases', purchase)
-                .then(() => {
-                    localStorage.removeItem("cart");
-                    navigate('/buys');
-                })
-                .catch((error) => {
-                    console.error(error);
-                    toast.error('Error processing payment', error);
+            Swal.fire({
+                icon: 'success',
+                title: 'Payment processed',
+                text: 'Thank you for your purchase',
+            }).then(() => {
+                axios.post('http://localhost:3001/purchases', purchase)
+                    .then(() => {
+                        localStorage.removeItem("cart");
+                        navigate('/buys');
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        toast.error('Error processing payment', error);
                 }); // post
+            }); // Swal
+            
         } catch (error) {
             console.error(error);
             toast.error('Error processing payment', error);

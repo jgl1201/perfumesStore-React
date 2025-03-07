@@ -17,6 +17,12 @@
       "username": "user2",
       "password": "password2",
       "role": "cliente"
+    },
+    {
+      "id": "ae72",
+      "username": "maria",
+      "password": "12",
+      "role": "cliente"
     }
   ],
   "products": [
@@ -199,6 +205,21 @@
         }
       ],
       "total": "435.00"
+    },
+    {
+      "id": "dd74",
+      "userId": "2",
+      "products": [
+        {
+          "id": "1",
+          "quantity": 2
+        },
+        {
+          "id": "2",
+          "quantity": 3
+        }
+      ],
+      "total": "440.00"
     }
   ]
 }
